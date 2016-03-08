@@ -6,4 +6,4 @@ description      'Install & configure MongoDB.'
 long_description 'Install & configure MongoDB.'
 version          '0.0.0'
 
-# depends 'mongodb'
+# cookbook dependencies
