@@ -1,0 +1,25 @@
+#upstart file at /etc/init/mongod.conf
+
+# Recommended ulimit values for mongod or mongos
+# See http://docs.mongodb.org/manual/reference/ulimit/#recommended-settings
+limit fsize unlimited unlimited  # (file size)
+limit cpu unlimited unlimited    # (cpu time)
+limit as unlimited unlimited     # (virtual memory size)
+limit nofile 64000 64000         # (open files)
+limit nproc 64000 64000          # (processes/threads)
+
+start on startup or runlevel [2345]
+stop on shutdown or runlevel [016]
+
+respawn
+respawn limit 10 5
+
+# use 'pre-start script' instead of normal 'script' otherwise upstart things process stops after it starts\
+#
+pre-start script
+    exec /usr/bin/mongod --config /etc/mongod.conf
+end script
+
+post-stop script
+    exec /usr/bin/sudo pkill mongod
+end script

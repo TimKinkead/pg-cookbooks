@@ -1,0 +1,7 @@
+check host mongod with address 127.0.0.1
+  start program = "/sbin/start mongod"
+  stop program = "/sbin/stop mongod"
+  if failed port 27017 protocol HTTP
+    request /
+    with timeout 10 seconds
+    then restart

@@ -1,0 +1,28 @@
+# /etc/mongod.conf (custom mongod configuration file)
+# https://doc.mongodb.org/manual/reference/configuration-options/
+
+systemLog:
+   destination: file
+   path: <%= @logpath %>
+   logAppend: true
+
+processManagement:
+   fork: true
+   pidFilePath: /var/run/mongodb/mongod.pid
+
+net:
+   port: 27017
+
+security:
+
+setParameter:
+
+storage:
+   dbPath: <%= @dbpath %>
+   journal:
+      enabled: true
+
+operationProfiling:
+
+replication:
+   replSetName: <%= @replSet %>
