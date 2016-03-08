@@ -8,3 +8,5 @@ cookbook 'nodejs', '~> 2.4.4' # https://supermarket.chef.io/cookbooks/nodejs
 
 # custom cookbooks ('pg' stands for Preva Group)
 cookbook 'pg-mongodb', path: './pg-mongodb'
+cookbook 'pg-nodejs', path: './pg-nodejs'
+cookbook 'pg-signalnoise', path: './pg-signalnoise'

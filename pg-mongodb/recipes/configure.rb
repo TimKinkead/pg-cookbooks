@@ -29,7 +29,7 @@ end
 
 execute "mongod_permission" do
     command "sudo chown -R mongod:mongod /srv/mongodb"
-    command "sudo chown mongod:mongod /var/run/mongodb/mongod.pid"
+    #command "sudo chown mongod:mongod /var/run/mongodb/mongod.pid" # Error: No such file or directory
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
