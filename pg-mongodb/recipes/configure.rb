@@ -9,10 +9,10 @@
 
 template "/etc/mongod.conf" do
     source "config_mongod.conf.erb"
-	#owner 'root'
-    #group 'root'
-    owner 'mongod'
-    group 'mongod'
+	owner 'root'
+    group 'root'
+    #owner 'mongod'
+    #group 'mongod'
     mode '0775'
     variables ({
         :dbpath => node["mongodb"]["config"]["dbpath"],
@@ -66,10 +66,10 @@ end
 
 template "/etc/init/mongod.conf" do
     source "upstart_mongod.conf.erb"
-	owner 'mongod'
-	group 'mongod'
-	#owner 'root'
-    #group 'root'
+	#owner 'mongod'
+	#group 'mongod'
+	owner 'root'
+    group 'root'
     mode '0775'
 end
 
