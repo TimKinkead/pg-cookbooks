@@ -1,5 +1,5 @@
 # /etc/mongod.conf (custom mongod configuration file)
-# https://doc.mongodb.org/manual/reference/configuration-options/
+# https://docs.mongodb.org/manual/reference/configuration-options/
 
 systemLog:
    destination: file
@@ -13,16 +13,10 @@ processManagement:
 net:
    port: 27017
 
-security:
-
-setParameter:
-
 storage:
    dbPath: <%= @dbpath %>
    journal:
       enabled: true
-
-operationProfiling:
 
 replication:
    replSetName: <%= @replSet %>

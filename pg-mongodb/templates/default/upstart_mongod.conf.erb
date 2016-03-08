@@ -14,8 +14,8 @@ stop on shutdown or runlevel [016]
 respawn
 respawn limit 10 5
 
-# use 'pre-start script' instead of normal 'script' otherwise upstart things process stops after it starts\
-#
+# use 'pre-start script' instead of normal 'script' otherwise upstart thinks process stops after it starts
+
 pre-start script
     exec /usr/bin/mongod --config /etc/mongod.conf
 end script
