@@ -14,3 +14,12 @@ cron "socialmedia_twitter" do
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
+
+# extract tweets from webpages twice per day
+
+cron "extract_twitter" do
+  minute "0"
+  hour "0,12"
+  day "*"
+  command "wget -O - http://localhost:80/data/webpage/extract/twitter >/dev/null 2>&1"
+end

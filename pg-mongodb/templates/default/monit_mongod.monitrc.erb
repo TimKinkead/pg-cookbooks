@@ -1,7 +1,7 @@
-# check process mongod with pidfile /var/run/mongodb/mongod.pid
-check host mongod with address 127.0.0.1
+check process mongod with pidfile /var/run/mongodb/mongod.pid
+#check host mongod with address 127.0.0.1
   start program = "/sbin/start mongod"
-    as uid mongod and gid mongod
+    #as uid mongod and gid mongod
   stop program = "/sbin/stop mongod"
   if failed port 27017 protocol HTTP
     request /
