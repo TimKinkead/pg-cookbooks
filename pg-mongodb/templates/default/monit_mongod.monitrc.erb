@@ -1,7 +1,14 @@
-check process mongod with pidfile /var/run/mongodb/mongod.pid
-#check host mongod with address 127.0.0.1
+# Alternate Check Statement
+# - << check process mongod with pidfile /var/run/mongodb/mongod.pid >>
+# - Monit can't start mongod with this. PID file permission issue?
+
+# User and Group Permissions
+# - << start program = "/sbin/start mongod"
+# -      as uid mongod and gid mongod >>
+# - Trying to not run mongod as root. Not quite working. Need to change other template file permissions?
+
+check host mongod with address 127.0.0.1
   start program = "/sbin/start mongod"
-    #as uid mongod and gid mongod
   stop program = "/sbin/stop mongod"
   if failed port 27017 protocol HTTP
     request /
