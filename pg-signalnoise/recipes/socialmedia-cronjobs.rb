@@ -23,3 +23,14 @@ cron "extract_twitter" do
   day "*"
   command "wget -O - http://localhost:80/data/webpage/extract/twitter >/dev/null 2>&1"
 end
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+# pull facebook content from social seeds every 1 hour
+
+cron "socialmedia_facebook" do
+  minute "5"
+  hour "*"
+  day "*"
+  command "wget -O - http://localhost:80/data/socialmedia/pull/facebook >/dev/null 2>&1"
+end
