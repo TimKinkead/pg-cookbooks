@@ -10,7 +10,7 @@ cron "socialmedia_twitter" do
   minute "0,15,30,45"
   hour "*"
   day "*"
-  command "wget -O - http://localhost:80/data/socialmedia/pull/twitter >/dev/null 2>&1"
+  command "wget -O - http://localhost:3000/data/socialmedia/pull/twitter >/dev/null 2>&1"
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ cron "extract_twitter" do
   minute "0"
   hour "0,12"
   day "*"
-  command "wget -O - http://localhost:80/data/webpage/extract/twitter >/dev/null 2>&1"
+  command "wget -O - http://localhost:3000/data/webpage/extract/twitter >/dev/null 2>&1"
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -32,5 +32,5 @@ cron "socialmedia_facebook" do
   minute "5"
   hour "*"
   day "*"
-  command "wget -O - http://localhost:80/data/socialmedia/pull/facebook >/dev/null 2>&1"
+  command "wget -O - http://localhost:3000/data/socialmedia/pull/facebook >/dev/null 2>&1"
 end
