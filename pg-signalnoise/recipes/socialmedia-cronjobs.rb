@@ -6,31 +6,53 @@
 
 # pull twitter content from social seeds every 15 minutes
 
-cron "socialmedia_twitter" do
+cron "socialmedia_pull_twitter" do
   minute "0,15,30,45"
   hour "*"
   day "*"
-  command "wget -O - http://localhost:3000/data/socialmedia/pull/twitter >/dev/null 2>&1"
+  command "wget -O - http://127.0.0.1:3000/data/socialmedia/pull/twitter >/dev/null 2>&1"
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
 
 # extract tweets from webpages twice per day
 
-cron "extract_twitter" do
+cron "socialmedia_extract_twitter" do
   minute "0"
   hour "0,12"
   day "*"
-  command "wget -O - http://localhost:3000/data/webpage/extract/twitter >/dev/null 2>&1"
+  command "wget -O - http://127.0.0.1:3000/data/webpage/extract/twitter >/dev/null 2>&1"
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
 
 # pull facebook content from social seeds every 1 hour
 
-cron "socialmedia_facebook" do
+cron "socialmedia_pull_facebook" do
   minute "5"
   hour "*"
   day "*"
-  command "wget -O - http://localhost:3000/data/socialmedia/pull/facebook >/dev/null 2>&1"
+  command "wget -O - http://127.0.0.1:3000/data/socialmedia/pull/facebook >/dev/null 2>&1"
+end
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+# process ngrams every 1 hour
+
+cron "socialmedia_process_ngrams" do
+  minute "20"
+  hour "*"
+  day "*"
+  command "wget -O - http://127.0.0.1:3000/data/socialmedia/process/ngrams >/dev/null 2>&1"
+end
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+# process sentiment every 1 hour
+
+cron "socialmedia_process_sentiment" do
+  minute "50"
+  hour "*"
+  day "*"
+  command "wget -O - http://127.0.0.1:3000/data/socialmedia/process/sentiment >/dev/null 2>&1"
 end
