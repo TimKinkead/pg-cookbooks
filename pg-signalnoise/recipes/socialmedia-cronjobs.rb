@@ -37,10 +37,9 @@ end
 
 # ----------------------------------------------------------------------------------------------------------------------
 
-# process ngrams every 1 hour
-
+# process ngrams every 10 minutes
 cron "socialmedia_process_ngrams" do
-  minute "20"
+  minute "0,10,20,30,40,50"
   hour "*"
   day "*"
   command "wget -O - http://127.0.0.1:3000/data/socialmedia/process/ngrams >/dev/null 2>&1"
@@ -48,10 +47,10 @@ end
 
 # ----------------------------------------------------------------------------------------------------------------------
 
-# process sentiment every 1 hour
+# process sentiment every 10 minutes
 
 cron "socialmedia_process_sentiment" do
-  minute "50"
+  minute "5,15,25,35,45,55"
   hour "*"
   day "*"
   command "wget -O - http://127.0.0.1:3000/data/socialmedia/process/sentiment >/dev/null 2>&1"
