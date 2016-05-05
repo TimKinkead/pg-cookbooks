@@ -75,7 +75,7 @@ cron "socialmedia_update_district_related" do
   minute "0"
   hour "*"
   day "0,7,14,21,28"
-  command "wget -O - http://127.0.0.1:3000/data/socialmedia/update/district-related >/dev/null 2>&1"
+  command "wget -O - http://127.0.0.1:3000/data/socialmedia/update/districtrelated >/dev/null 2>&1"
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
