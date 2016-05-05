@@ -38,6 +38,7 @@ end
 # ----------------------------------------------------------------------------------------------------------------------
 
 # process ngrams every 10 minutes
+
 cron "socialmedia_process_ngrams" do
   minute "0,10,20,30,40,50"
   hour "*"
@@ -74,8 +75,8 @@ end
 cron "socialmedia_update_district_related" do
   minute "0"
   hour "*"
-  day "0,7,14,21,28"
-  command "wget -O - http://127.0.0.1:3000/data/socialmedia/update/districtrelated >/dev/null 2>&1"
+  day "*"
+  command "wget -O - http://127.0.0.1:3000/data/socialmedia/update/district-related >/dev/null 2>&1"
 end
 
 # ----------------------------------------------------------------------------------------------------------------------
