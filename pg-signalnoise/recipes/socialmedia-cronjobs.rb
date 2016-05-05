@@ -74,8 +74,8 @@ end
 
 cron "socialmedia_update_district_related" do
   minute "0"
-  hour "*"
-  day "*"
+  hour "0"
+  weekday "0"
   command "wget -O - http://127.0.0.1:3000/data/socialmedia/update/district-related >/dev/null 2>&1"
 end
 
@@ -85,7 +85,7 @@ end
 
 cron "socialmedia_update_seeds" do
   minute "0"
-  hour "*"
-  day "0,7,14,21,28"
+  hour "0"
+  weekday "0"
   command "wget -O - http://127.0.0.1:3000/data/socialmedia/update/seeds >/dev/null 2>&1"
 end
