@@ -55,3 +55,36 @@ cron "socialmedia_process_sentiment" do
   day "*"
   command "wget -O - http://127.0.0.1:3000/data/socialmedia/process/sentiment >/dev/null 2>&1"
 end
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+# update social media locations every 15 mins
+
+cron "socialmedia_update_locations" do
+  minute "0,15,30,45"
+  hour "*"
+  day "*"
+  command "wget -O - http://127.0.0.1:3000/data/socialmedia/update/locations >/dev/null 2>&1"
+end
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+# update district related social media every week
+
+cron "socialmedia_update_district_related" do
+  minute "0"
+  hour "*"
+  day "0,7,14,21,28"
+  command "wget -O - http://127.0.0.1:3000/data/socialmedia/update/district-related >/dev/null 2>&1"
+end
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+# update social media without seeds every week
+
+cron "socialmedia_update_seeds" do
+  minute "0"
+  hour "*"
+  day "0,7,14,21,28"
+  command "wget -O - http://127.0.0.1:3000/data/socialmedia/update/seeds >/dev/null 2>&1"
+end
