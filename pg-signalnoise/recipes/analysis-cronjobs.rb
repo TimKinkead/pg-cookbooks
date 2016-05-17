@@ -8,7 +8,7 @@
 
 cron "analysis_batch" do
   minute "0"
-  hour "0"
-  day "1,2,3,4,5"
+  hour "1"
+  weekday "0,1,2"
   command "wget -O - http://127.0.0.1:3000/data/analysis/batch >/dev/null 2>&1"
 end
